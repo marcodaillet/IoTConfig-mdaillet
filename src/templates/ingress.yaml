@@ -37,13 +37,14 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    - host: localhost
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .Values.ingress.hosts }}
-          - path: {{ .paths | first | path }}
-            {{- if and .paths | first | pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
-            pathType: {{ .paths | first | pathType }}
+          {{- range .paths }}
+          - path: {{ .path }}
+            {{- if and .pathType (semverCompare ">=1.18-0" $.Capabilities.KubeVersion.GitVersion) }}
+            pathType: {{ .pathType }}
             {{- end }}
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
