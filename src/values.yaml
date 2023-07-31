@@ -38,12 +38,12 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 8080
+  port: 80
   targetPort: 8888
   nodePort: 32767
 
 ingress:
-  enabled: false  # <-- Changed this to enable Ingress
+  enabled: true  # <-- Changed this to enable Ingress
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
