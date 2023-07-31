@@ -8,7 +8,7 @@ image:
   repository: wil42/playground
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v2"
+  tag: "v1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -43,13 +43,13 @@ service:
   nodePort: 32767
 
 ingress:
-  enabled: true  # <-- Changed this to enable Ingress
+  enabled: false
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: localhost  # <-- Changed this to allow access via 'localhost'
+    - host: chart-example.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -81,5 +81,4 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
 affinity: {}
