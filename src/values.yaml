@@ -43,7 +43,7 @@ service:
   nodePort: 32767
 
 ingress:
-  enabled: false  # <-- Changed this to enable Ingress
+  enabled: true  # <-- Changed this to enable Ingress
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
