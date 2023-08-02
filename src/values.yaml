@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: wil42/playground
   pullPolicy: IfNotPresent
-  tag: "v2"
+  tag: "v1"
 
 imagePullSecrets: []
 nameOverride: ""
